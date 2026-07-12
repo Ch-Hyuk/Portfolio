@@ -146,10 +146,10 @@
           <p>브라우저에서 바로 확인하거나 PDF 파일로 다운로드할 수 있습니다.</p>
         </div>
         <nav class="actions" aria-label="포트폴리오 PDF 작업">
-          <a class="button primary" href="./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf" download>
+          <a id="downloadLink" class="button primary" href="./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf" download>
             PDF 다운로드
           </a>
-          <a class="button" href="./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf" target="_blank" rel="noopener">
+          <a id="openLink" class="button" href="./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf" target="_blank" rel="noopener">
             새 탭에서 열기
           </a>
         </nav>
@@ -157,10 +157,19 @@
 
       <section class="viewer" aria-label="포트폴리오 PDF 미리보기">
         <iframe
+          id="pdfViewer"
           title="곽찬혁 포트폴리오 PDF"
           src="./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf"
         ></iframe>
       </section>
     </main>
+    <script>
+      const pdfPath = "./Portfolio_%EA%B3%BD%EC%B0%AC%ED%98%81.pdf";
+      const pdfUrl = `${pdfPath}?v=${Date.now()}`;
+
+      document.getElementById("pdfViewer").src = pdfUrl;
+      document.getElementById("downloadLink").href = pdfUrl;
+      document.getElementById("openLink").href = pdfUrl;
+    </script>
   </body>
 </html>
